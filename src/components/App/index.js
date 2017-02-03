@@ -5,13 +5,13 @@ import './style.css';
 class Nav extends Component {
   render() {
     return(
-      <div>
+      <div className="Nav">
         <div>
          <Link to="/" activeClassName="active">Home</Link>
         </div> 
         <div>
           <p>Aurora</p>
-        </div>
+        </div>  
         <div>
           <Link to="/profile" activeClassName="active">Profile</Link>
         </div>
