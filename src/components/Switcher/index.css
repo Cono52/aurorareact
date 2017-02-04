@@ -29,8 +29,12 @@
     vertical-align: middle
 }
 
+.InfoLook {
+    width: 100%;
+}
+
 .InfoLook img {
-    max-width: 100%;
+    width: 100%;
 }
 
 .InfoLook div{

@@ -6,6 +6,7 @@ class InfoLook extends Component {
     return (
       <div className="InfoLook">
         <img src="http://i.dailymail.co.uk/i/pix/2015/10/14/14/2D676F7400000578-0-image-a-76_1444830931852.jpg" alt="123"/>
+        {/*<img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRJaV3nGKXiG9jd62LvhU-0MLtNF4gqkcQM99YCtSnDX1oLsIF0a62dDg" alt="123"/>*/}
         <div>123</div>
         <div>3</div>
         <div>6.5</div>
