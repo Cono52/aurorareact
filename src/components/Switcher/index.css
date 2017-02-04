@@ -1,0 +1,38 @@
+.Switcher {
+    margin-top: 20px;
+}
+
+.left {
+    background-color: lightblue;
+    width: 20%;
+}
+
+.dislike {
+
+}
+
+.midd {
+    background-color: sandybrown;
+     width: 60%;
+}
+.right{
+    background-color: darkgoldenrod;
+     width: 20%;
+}
+
+.like {
+
+}
+
+.Switcher div {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.InfoLook img {
+    max-width: 100%;
+}
+
+.InfoLook div{
+    display: block;
+}
