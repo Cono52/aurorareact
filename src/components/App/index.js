@@ -1,19 +1,27 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router'
+
+import home from './home.svg';
+import profile from './profile.svg'
+
 import './style.css';
 
 class Nav extends Component {
   render() {
     return(
       <div className="Nav">
-        <div>
-         <Link to="/" activeClassName="active">Home</Link>
+        <div className="home">
+          <Link to="/" activeClassName="active">
+            <img src={home} className="home-logo" alt="logo" />
+          </Link>
         </div> 
-        <div>
+        <div className="titleText">
           <p>Aurora</p>
         </div>  
-        <div>
-          <Link to="/profile" activeClassName="active">Profile</Link>
+        <div className="profile">
+          <Link to="/profile" activeClassName="active">
+            <img src={profile} className="profile-logo" alt="logo" />
+          </Link>
         </div>
       </div>
     )
