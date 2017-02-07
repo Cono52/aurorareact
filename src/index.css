@@ -6,3 +6,65 @@ body {
   font-family: sans-serif;
   box-sizing: border-box;
 }
+
+
+.transition-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+transition-wrapper.transition-item {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.Profile {
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.Profile.transition-appear {
+    opacity: 0;
+    transform: translate3d(50%, 0, 0);
+  }
+
+.Profile.transition-appear.transition-appear-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.Profile.transition-leave {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.Profile.transition-leave.transition-leave-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+.Switcher {
+  transition: transform 0.5s, opacity 0.5s;
+  transform: translate3d(0, 0, 0);
+}
+
+.Switcher.transition-appear {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.Switcher.transition-appear.transition-appear-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.Switcher.transition-leave {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.Switcher.transition-leave.transition-leave-active {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}

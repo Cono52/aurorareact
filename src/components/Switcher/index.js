@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './index.css'
+import heart from './heart.svg'
+import ex from './ex.svg'
 
 class InfoLook extends Component {
   render() {
@@ -18,17 +20,19 @@ class InfoLook extends Component {
 class Switcher extends Component {
   render() {
     return(
-      <div className="Switcher">
-        <div className="left">
-          <button className="dislike">{"X"}</button>
-        </div> 
-        <div className="midd">
-          <InfoLook></InfoLook>
+        <div className="transition-item Switcher"> 
+          <div className="midd">
+            <InfoLook></InfoLook>
+          </div>
+          <div className="buttonBox">
+            <div className="left">
+              <button className="dislike"><img src={ex} alt=""/></button>
+            </div>
+            <div className="right">
+              <button className="like"><img src={heart} alt=""/></button>
+            </div>
+          </div>
         </div>
-        <div className="right">
-          <button className="like">{"<3"}</button>
-        </div>
-      </div>
     )
   }
 }

@@ -1,32 +1,41 @@
 .Switcher {
-    margin-top: 20px;
-}
-
-.left {
-    background-color: lightblue;
-    width: 20%;
-}
-
-.dislike {
-
-}
-
-.midd {
-    background-color: sandybrown;
-     width: 60%;
-}
-.right{
-    background-color: darkgoldenrod;
-     width: 20%;
-}
-
-.like {
-
+    margin-top: 5vh;
 }
 
 .Switcher div {
-    display: inline-block;
-    vertical-align: middle
+    display: block;
+}
+
+.left {
+    float: left;
+    margin-left: 20%
+}
+
+.right{
+    float: right;
+    margin-right: 20%
+}
+
+.buttonBox {
+    display: inline;
+}
+
+.Switcher button {
+  border-radius: 100px;
+  background-color: hotpink;
+  border: 0px;
+  height: 50px;
+  width: 50px;
+  box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
+}
+
+
+.dislike, .like {
+    transform: scale(1.5);
+}
+
+.dislike img, .like img{
+    transform: translateY(2px);
 }
 
 .InfoLook {
@@ -34,7 +43,7 @@
 }
 
 .InfoLook img {
-    width: 100%;
+    width: 80%;
 }
 
 .InfoLook div{

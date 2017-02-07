@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router'
-
+import PageTransition from 'react-router-page-transition';
 import home from './home.svg';
 import profile from './profile.svg'
 
@@ -33,9 +33,9 @@ class App extends Component {
     return (
       <div className="App">
           <Nav></Nav>
-          <div className="content">
-            {this.props.children}
-          </div>
+          <PageTransition>
+              {this.props.children}
+          </PageTransition>
       </div>
     );
   }
