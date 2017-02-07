@@ -4,7 +4,7 @@ import './index.css'
 class Profile extends Component {
     render() {
         return (
-            <div className="transition-item Profile">
+            <div className="Profile">
                 Profile
                 <button>Upload</button>
             </div>

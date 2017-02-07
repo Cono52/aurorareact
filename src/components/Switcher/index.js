@@ -20,7 +20,7 @@ class InfoLook extends Component {
 class Switcher extends Component {
   render() {
     return(
-        <div className="transition-item Switcher"> 
+        <div className="Switcher"> 
           <div className="midd">
             <InfoLook></InfoLook>
           </div>

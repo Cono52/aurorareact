@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router'
-import PageTransition from 'react-router-page-transition';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import home from './home.svg';
 import profile from './profile.svg'
 
@@ -30,12 +30,19 @@ class Nav extends Component {
 
 class App extends Component {
   render() {
+    var path = this.props.location.pathname;
+    var segment = path.split('/')[1] || 'root';
     return (
       <div className="App">
           <Nav></Nav>
-          <PageTransition>
-              {this.props.children}
-          </PageTransition>
+          <ReactCSSTransitionGroup 
+            transitionName={segment === 'root' ? 'reverseExample' : 'example'}
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnterTimeout={600}
+            transitionLeaveTimeout={600}>
+             {React.cloneElement(this.props.children, { key: segment })}
+          </ReactCSSTransitionGroup>
       </div>
     );
   }
