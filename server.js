@@ -1,24 +1,20 @@
 const express = require('express');
 const app = express();
-const MongoClient = require('mongodb').MongoClient
+const mongoose = require('mongoose');
+const look = require('./models/looks');
 
-MongoClient.connect('mongodb://localhost:27017/auroraLooks', (err, database) => {
+let db = mongoose.connect('mongodb://localhost:27017/auroraLooks').connection
+
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+app.get('/looks', (req, res) => {
+  db.collection('looks').find((err, looks) => {
     if (err) return console.log(err)
-    db = database
-    app.listen(3001, () => {
-        console.log('listening on 3001')
-    })
-})
-
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client/public/index.html'));
-})
-
-app.post('/looks', (req, res) => {
-  db.collection('looks').save(req.body, (err, result) => {
-    if (err) return console.log(err)
-
-    console.log('saved to database')
-    res.redirect('/')
+    res.json(looks)
   })
+})
+
+app.listen(3001, () => {
+  console.log('listening on 3001')
 })

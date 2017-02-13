@@ -18,6 +18,13 @@ class InfoLook extends Component {
 }
 
 class Switcher extends Component {
+
+  search() {
+    return fetch(`/looks`, {
+      accept: 'application/json',
+    }).then(console.log());
+  }
+
   render() {
     return(
         <div className="Switcher"> 
@@ -26,7 +33,7 @@ class Switcher extends Component {
           </div>
           <div className="buttonBox">
             <div className="left">
-              <button className="dislike"><img src={ex} alt=""/></button>
+              <button className="dislike" onClick={() => this.search()}><img src={ex} alt=""/></button>
             </div>
             <div className="right">
               <button className="like"><img src={heart} alt=""/></button>
