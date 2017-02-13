@@ -12,7 +12,7 @@ let db = mongoose.connect('mongodb://localhost:27017/auroraLooks').connection
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.get('/api/looks', (req, res) => {
-  looks.find({}, function(err, looks) {
+  Look.find({}, function(err, looks) {
     if (err) throw err;
      res.json(looks)
   });
