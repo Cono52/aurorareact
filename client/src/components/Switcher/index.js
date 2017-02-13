@@ -20,9 +20,13 @@ class InfoLook extends Component {
 class Switcher extends Component {
 
   search() {
-    return fetch(`/looks`, {
-      accept: 'application/json',
-    }).then(console.log());
+    return fetch(`api/looks`, {
+      accept: 'application/json'
+    }).then((res) => {
+      return res.json();
+    }).then((a) => {
+      console.log(a)
+    })
   }
 
   render() {

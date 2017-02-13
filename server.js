@@ -8,7 +8,7 @@ let db = mongoose.connect('mongodb://localhost:27017/auroraLooks').connection
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-app.get('/looks', (req, res) => {
+app.get('/api/looks', (req, res) => {
   looks.find({}, function(err, users) {
     if (err) throw err;
     // object of all the users
