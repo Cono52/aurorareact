@@ -26,7 +26,9 @@ class Switcher extends Component {
     }
   }
 
-  search() {
+  handleClick() {
+    //TODO: If current array is L>5 copy array into new array of 1 shorter 
+    //      else retrieve 5 new pics from DB and copy contents of old array into new.
     return fetch(`api/looks`, {
       accept: 'application/json'
     }).then((res) => {
@@ -40,14 +42,14 @@ class Switcher extends Component {
     return(
         <div className="Switcher"> 
           <div className="midd">
-            <InfoLook></InfoLook>
+            <InfoLook look={this.state.looks[0]}></InfoLook>
           </div>
           <div className="buttonBox">
             <div className="left">
-              <button className="dislike" onClick={() => this.search()}><img src={ex} alt=""/></button>
+              <button className="dislike" onClick={() => this.handleClick()}><img src={ex} alt=""/></button>
             </div>
             <div className="right">
-              <button className="like"><img src={heart} alt=""/></button>
+              <button className="like" onClick={() => this.handleClick()}><img src={heart} alt=""/></button>
             </div>
           </div>
         </div>
