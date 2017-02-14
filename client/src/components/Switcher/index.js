@@ -19,6 +19,13 @@ class InfoLook extends Component {
 
 class Switcher extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      looks: Array(9).fill(null)
+    }
+  }
+
   search() {
     return fetch(`api/looks`, {
       accept: 'application/json'
