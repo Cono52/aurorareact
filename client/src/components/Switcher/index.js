@@ -19,25 +19,31 @@ function InfoLook(props) {
 class Switcher extends Component {
 
 	constructor(props) {
-		super(props)
-		this.state = {
-			looks: []
-		}
+    super(props)
+    this.state = {
+        looks: []
+    }
 	}
+
 
 	componentDidMount() {
-		return fetch(`api/looks`, {
-			accept: 'application/json'
-		}).then((res) => {
-			return res.json()
-		}).then((a) => {
-			this.setState({ looks: a })
-			console.log(this.state.looks)
-		})
+		if (this.state.looks.length === 0) {
+				return fetch(`api/looks`, {
+						accept: 'application/json'
+				}).then((res) => {
+						return res.json()
+				}).then((a) => {
+						this.setState({ looks: a })
+						console.log(this.state.looks)
+				})
+		} else return 1
 	}
 
+
 	handleClick() {
-		console.log("next pic")
+		let current = this.state.looks
+		let next = this.state.looks.splice(1)
+		this.setState({looks: next})
 	}
 
 	render() {
