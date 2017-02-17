@@ -25,7 +25,7 @@ app.listen(3001, () => {
 
 let manualInput = (imgPath, rating, skill, price) => {
   let look = new Look
-  look.img.data = fs.readFileSync(imgPath)
+  look.img.data = fs.readFileSync(imgPath, 'base64')
   look.img.contentType = 'image/jpg'
   look.rating = rating
   look.skill = skill

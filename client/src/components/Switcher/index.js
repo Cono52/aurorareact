@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import './index.css'
 import heart from './heart.svg'
 import ex from './ex.svg'
+import {encode} from 'base64-arraybuffer'
 
 function InfoLook(props) {
 		return (
 			<div className="InfoLook">
-				{/*TODO: convert image from array buffer to image*/}
-				{/*<img src={props.look.img} alt="123"/>*/}
-				<img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRJaV3nGKXiG9jd62LvhU-0MLtNF4gqkcQM99YCtSnDX1oLsIF0a62dDg" alt="123"/>
+				<img src={"data:image/jpeg;base64,"+encode(props.look.img.data.data)} alt="missing"/>
+				{/*<img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRJaV3nGKXiG9jd62LvhU-0MLtNF4gqkcQM99YCtSnDX1oLsIF0a62dDg" alt="123"/>*/}
 				<div>{props.look.price}</div>
 				<div>{props.look.rating}</div>
 				<div>{props.look.skill}</div>
