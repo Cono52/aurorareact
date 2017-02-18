@@ -25,10 +25,10 @@ function InfoLook(props) {
 class Switcher extends Component {
 
 	constructor(props) {
-    super(props)
-    this.state = {
-        looks: []
-    }
+		super(props)
+		this.state = {
+			looks: []
+		}
 	}
 
 
@@ -43,7 +43,7 @@ class Switcher extends Component {
 
 
 	handleClick() {
-		this.setState({looks: this.state.looks.splice(1)	})
+		this.setState({looks: this.state.looks.splice(1)})
 	}
 
 	render() {
