@@ -9,9 +9,14 @@ function InfoLook(props) {
 			<div className="InfoLook">
 				<img src={"data:image/jpeg;base64,"+encode(props.look.img.data.data)} alt="missing"/>
 				<div className="stats">
-					<div>{props.look.price}</div>
-					<div>{props.look.rating}</div>
-					<div>{props.look.skill}</div>
+					<div className="row">
+						<div>${props.look.price}</div>
+						<div>{props.look.rating}</div>
+					</div>
+					<div className="row">
+						<div>{props.look.skill}</div>
+						<div>{props.look.likes}</div>
+					</div>
 				</div>
 			</div>
 		)
