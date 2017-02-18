@@ -28,22 +28,16 @@ class Switcher extends Component {
 
 	componentDidMount() {
 		if (this.state.looks.length === 0) {
-				return fetch(`api/looks`, {
-						accept: 'application/json'
-				}).then((res) => {
-						return res.json()
-				}).then((a) => {
-						this.setState({ looks: a })
-						console.log(this.state.looks)
-				})
-		} else return 1
+				fetch(`api/looks`, {
+						accept: 'application/json'})
+				.then(res => res.json())
+				.then(a => this.setState({ looks: a }))
+		}
 	}
 
 
 	handleClick() {
-		let current = this.state.looks
-		let next = this.state.looks.splice(1)
-		this.setState({looks: next})
+		this.setState({looks: this.state.looks.splice(1)	})
 	}
 
 	render() {
