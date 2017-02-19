@@ -1,5 +1,5 @@
-.Switcher {
-    margin-top: 5vh;
+.Switcher{
+    height: 80%;
 }
 
 .Switcher div {
@@ -17,30 +17,26 @@
 }
 
 .buttonBox {
-    display: inline;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    overflow: auto;
 }
 
 .Switcher button {
-    border-radius: 100px;
+    border-radius: 25px;
     background-color: hotpink;
     border: 0px;
-    height: 50px;
-    width: 50px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .Switcher button:focus {
     outline: 0px;
 }
 
-.dislike,
-.like {
-    transform: scale(1.5);
-}
-
 .dislike img,
 .like img {
-    transform: translateY(2px);
+    transform: scale(1.5) translateY(1px);
+    padding: 20px;
 }
 
 .InfoLook {
@@ -49,6 +45,8 @@
 
 .InfoLook img {
     width: 80%;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
 }
 
 .InfoLook div {
@@ -56,8 +54,7 @@
 }
 
 .stats {
-    background-color: lightpink;
-    margin-top: 5vh;
+    font-family: 'Raleway', sans-serif;
 }
 
 .stats .row {
@@ -69,7 +66,68 @@
     width: 100px;
     padding: 10px;
     margin: 5px 20px 5px 20px;
-    background-color: slategrey;
-    color: black;
+    background-color: black;
+    color: white;
     border-radius: 3px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 25%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  align-content: center;
+}
+
+.flex {
+  min-height: 60pt;
+  margin-top: 25px;
+}
+
+@keyframes loading {
+  0% {
+    width: 50pt;
+    height: 50pt;
+    margin-top: 0;
+  }
+  25% {
+    height: 4pt;
+    margin-top: 23pt;
+  }
+  50% {
+    width: 4pt;
+  }
+  75% {
+    width: 50pt;
+  }
+  100% {
+    width: 50pt;
+    height: 50pt;
+    margin-top: 0;
+  }
+}
+
+.loader {
+  width: 50pt;
+  height: 50pt;
+  border-radius: 100%;
+  border: deeppink 4pt solid;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
+  animation: loading 1s infinite;
+}
+
+.load-text {
+  padding-top: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: lighten(#6767fa, 75%);
 }
