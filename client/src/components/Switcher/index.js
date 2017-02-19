@@ -49,7 +49,16 @@ class Switcher extends Component {
 		return(
 				<div className="Switcher">
 					<div className="midd">{
-					(this.state.looks.length === 0) ? <div>Loading</div>
+					(this.state.looks.length === 0) 
+					? <div className="container">
+							<div className="load-text">
+								Loading...
+							</div>
+							<div className="flex">
+								<div className="loader">
+								</div>
+							</div>
+						</div>
 						:[<InfoLook key={1} look={this.state.looks[0]}></InfoLook>,
 						<div key={2} className="buttonBox">
 							<div className="left">
