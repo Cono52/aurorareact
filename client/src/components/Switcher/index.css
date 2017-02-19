@@ -8,12 +8,12 @@
 
 .left {
     float: left;
-    margin-left: 20%
+    margin-left: 20%;
 }
 
-.right{
+.right {
     float: right;
-    margin-right: 20%
+    margin-right: 20%;
 }
 
 .buttonBox {
@@ -21,20 +21,25 @@
 }
 
 .Switcher button {
-  border-radius: 100px;
-  background-color: hotpink;
-  border: 0px;
-  height: 50px;
-  width: 50px;
-  box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
+    border-radius: 100px;
+    background-color: hotpink;
+    border: 0px;
+    height: 50px;
+    width: 50px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
 }
 
+.Switcher button:focus {
+    outline: 0px;
+}
 
-.dislike, .like {
+.dislike,
+.like {
     transform: scale(1.5);
 }
 
-.dislike img, .like img{
+.dislike img,
+.like img {
     transform: translateY(2px);
 }
 
@@ -46,6 +51,25 @@
     width: 80%;
 }
 
-.InfoLook div{
+.InfoLook div {
     display: block;
+}
+
+.stats {
+    background-color: lightpink;
+    margin-top: 5vh;
+}
+
+.stats .row {
+    display: block;
+}
+
+.stats .row div {
+    display: inline-block;
+    width: 100px;
+    padding: 10px;
+    margin: 5px 20px 5px 20px;
+    background-color: slategrey;
+    color: black;
+    border-radius: 3px;
 }
