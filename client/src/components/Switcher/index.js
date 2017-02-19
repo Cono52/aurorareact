@@ -31,7 +31,6 @@ class Switcher extends Component {
 		}
 	}
 
-
 	componentDidMount() {
 		if (this.state.looks.length === 0) {
 				fetch(`api/looks`, {
@@ -51,14 +50,14 @@ class Switcher extends Component {
 				<div className="Switcher">
 					<div className="midd">{
 					(this.state.looks.length === 0) ? <div>Loading</div>
-						:[<InfoLook look={this.state.looks[0]}></InfoLook>,
-						<div className="buttonBox">
-						<div className="left">
-							<button className="dislike" onClick={() => this.handleClick()}><img src={ex} alt=""/></button>
-						</div>
-						<div className="right">
-							<button className="like" onClick={() => this.handleClick()}><img src={heart} alt=""/></button>
-						</div>
+						:[<InfoLook key={1} look={this.state.looks[0]}></InfoLook>,
+						<div key={2} className="buttonBox">
+							<div className="left">
+								<button className="dislike" onClick={() => this.handleClick()}><img src={ex} alt=""/></button>
+							</div>
+							<div className="right">
+								<button className="like" onClick={() => this.handleClick()}><img src={heart} alt=""/></button>
+							</div>
 						</div>]
 					}
 					</div>
