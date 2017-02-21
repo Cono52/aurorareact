@@ -18,6 +18,10 @@ app.get('/api/looks', (req, res) => {
   });
 })
 
+app.get('/api/checkImage', (req, res) => {
+  console.log(req);
+})
+
 app.listen(3001, () => {
   console.log('listening on 3001')
 })
