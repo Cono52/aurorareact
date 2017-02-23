@@ -1,25 +1,83 @@
 const express = require('express')
-const app = express()
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const Look = require('./models/look')
 const readline = require('readline')
+
+const multer = require('multer')
+const upload = multer({dest: 'uploads/'});
+const async = require('async')
+const _ = require('lodash')
+const easyimg = require('easyimage')
+const cv = require('opencv')
+
 const fs = require('fs')
+const app = express()
 
-mongoose.Promise = require('bluebird');
+var exts = {
+  'image/jpeg'   :   '.jpg',
+  'image/png'    :   '.png',
+  'image/gif'    :   '.gif'
+}
+
+/*db setup*/
+mongoose.Promise = require('bluebird')
 let db = mongoose.connect('mongodb://localhost:27017/auroraLooks').connection
-
-
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
 app.get('/api/looks', (req, res) => {
   Look.find({}, function(err, looks) {
-    if (err) throw err;
+    if (err) throw err
      res.json(looks)
   });
 })
 
-app.get('/api/checkImage', (req, res) => {
-  console.log(req);
+app.post('/api/checkImage', upload.single('file') , (req, res, next) => {
+  let filename = req.file.filename + exts[req.file.mimetype]
+  let src = __dirname + '/' + req.file.path
+  let dst = __dirname + './images/' + filename;
+  async.waterfall(
+    [( callback ) => {
+        if (!_.contains(
+          [
+            'image/jpeg',
+            'image/png',
+            'image/gif'
+          ],
+          req.file.mimetype
+        )) {
+          return callback( new Error( 'Invalid file - please upload an image (.jpg, .png, .gif).' ) )
+        }
+        return callback();
+      },
+      ( callback ) => {
+        easyimg.info( src )
+        .then(file => {return callback()})
+      },
+      ( callback ) => {
+        easyimg.resize(
+          {
+            width      :   960,
+            src        :   src,
+            dst        :   dst
+          }
+        ).then(image => {
+          return callback();
+        });
+      },
+      ( callback ) => { cv.readImage( dst, callback )},
+      ( im, callback ) => { im.detectObject( cv.FACE_CASCADE, {}, callback ) }
+    ],
+    ( err, faces ) => {
+      if ( err ) res.send({'valid': 'no'})
+
+      res.send({'faces': faces.length})
+    }
+  );
 })
 
 app.listen(3001, () => {
