@@ -1,3 +1,22 @@
 .Profile {
     margin-top: 20px;
 }
+
+.Profile * {
+    box-sizing: border-box;
+}
+
+.previewComponent {
+    margin: 10px;
+}
+
+.previewComponent form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.imgPreview img {
+    width: 80%;
+}
