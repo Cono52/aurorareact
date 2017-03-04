@@ -84,15 +84,23 @@ class Profile extends Component {
      }
    }
 
+   populateGrid() {
+     return this.state.imgLinks.map( image => {
+        return <div key={this.state.imgLinks.indexOf(image)} className="gridImg">
+                  <img src={image} alt=""/>
+               </div>  
+     })
+   }
+
 	render() {
 		return (
 			<div className="Profile">
         <div className="userImg"><img src="http://2.bp.blogspot.com/-CFsxW1dkfJM/VKiabOTV7AI/AAAAAAAAMik/-X5AH8KpLmM/s1600/IMG_5924.JPG" alt=""/></div>
         <div className="userName">Jane Doe</div>
         <div className="lookGrid">
-
+          {this.populateGrid()}
         </div>
-        <button className="addLook">+ Add New Look</button>
+        <button className="addLook">+ New Look</button>
 				{/*<ImageUpload/>*/}
 			</div>
 		);
