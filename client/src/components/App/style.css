@@ -3,9 +3,12 @@
 }
 
 .Nav {
+  position: fixed;
+  width: 100vw;
   text-align: center;
   color: white;
   background: black;  
+  z-index: 1;
 }
 
 .Nav div {
