@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './index.css'
-import heart from './heart.svg'
-import ex from './ex.svg'
+import heart from '../heart.svg'
+import ex from '../ex.svg'
 import {encode} from 'base64-arraybuffer'
 
 function InfoLook(props) {
