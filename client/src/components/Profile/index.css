@@ -17,13 +17,7 @@
     align-items: center;
 }
 
-.userName {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
 .userImg {
-    padding : 40px;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+51,ffffff+51,ffffff+51 */
     background: #000000; /* Old browsers */
     background: -moz-linear-gradient(top, #000000 51%, #ffffff 51%, #ffffff 51%); /* FF3.6-15 */
@@ -33,9 +27,30 @@
 }
 
 .userImg img{
-    width: 50%;
+    margin: 10px;
+    width: 30%;
     border-radius: 1000px;
     box-shadow: 0px 0px 0px 2px palevioletred,0px 0px 0px 4px rgba(0,0,0,0.22)
+}
+
+.userName {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.userStats {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px;
+}
+
+.followers, .lookCount {
+    height: 100%;
+    display: flex;
+}
+
+.followers *, .lookCount * {
+    padding: 2px;
 }
 
 .lookGrid {

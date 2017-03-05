@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import heart from '../heart.svg'
+import people from '../people.svg'
+import makeup from '../makeup.svg'
 import './index.css'
 
 
@@ -97,11 +99,27 @@ class Profile extends Component {
      })
    }
 
+   
+
 	render() {
 		return (
 			<div className="Profile">
         <div className="userImg"><img src="http://2.bp.blogspot.com/-CFsxW1dkfJM/VKiabOTV7AI/AAAAAAAAMik/-X5AH8KpLmM/s1600/IMG_5924.JPG" alt=""/></div>
         <div className="userName">Jane Doe</div>
+        <div className="userStats">
+          <div className="followers">
+            <img style={{width: "35px"}} src={people} alt=""/>
+            <div>
+              <span>213</span>
+            </div>
+          </div>
+          <div className="lookCount">
+            <img style={{height: "35px", width: "35px"}} src={makeup} alt=""/>
+            <div>
+              <span>9</span>
+            </div>
+          </div>
+        </div>
         <div className="lookGrid">
           {this.populateGrid()}
         </div>
