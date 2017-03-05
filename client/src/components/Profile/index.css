@@ -6,17 +6,6 @@
     font-family: 'Raleway', sans-serif;
 }
 
-.previewComponent {
-    margin: 10px;
-}
-
-.previewComponent form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-}
-
 .userImg {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+51,ffffff+51,ffffff+51 */
     background: #000000; /* Old browsers */
@@ -113,4 +102,78 @@
 
 .imgPreview img {
     width: 80%;
+}
+
+.previewComponent {
+    position: fixed;
+    top: 0%;
+    height: 100%;
+    width: 100vw;
+    background: rgba(0,0,0,0.85);
+    z-index: 2;
+}
+
+.previewComponent .exitModal {
+    position: absolute;
+    top: 1%;
+    left: 2%;
+    background-color: rgba(100,100,100,0.75);
+    height: 60px;
+    width: 60px;
+    border-radius: 1000px;
+    border-style: none;
+}
+
+.previewComponent .exitModal:focus {
+    outline: none;
+}
+
+.previewComponent .exitModal img {
+    transform: scale(1.5);
+}
+
+
+.preview {
+    height: 100%;
+    width: 100vw;
+    z-index: 2;
+}
+
+.preview form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    height: 100%;
+    width: 75%;
+}
+
+.preview input[type="file"] {
+    display: none;
+}
+
+.preview label {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: pink;
+    border-radius: 20px;
+    border-style: none;
+    box-shadow: 0px 3px 0px 2px deeppink;
+}
+
+.preview .imgPreview {
+    color: white;
+}
+
+.preview .submitButton {
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: pink;
+    border-radius: 20px;
+    border-style: none;
+    box-shadow: 0px 3px 0px 2px deeppink;
 }

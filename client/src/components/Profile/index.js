@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import heart from '../heart.svg'
 import people from '../people.svg'
 import makeup from '../makeup.svg'
+import ex from '../ex.svg'
 import './index.css'
 
 
@@ -52,16 +53,18 @@ class ImageUpload extends React.Component {
 
     return (
       <div className="previewComponent">
-        <form onSubmit={(e)=>this._handleSubmit(e)}>
-          <input className="fileInput" 
-            type="file" 
-            onChange={(e)=>this._handleImageChange(e)} />
-          <button className="submitButton" 
-            type="submit" 
-            onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
-        </form>
-        <div className="imgPreview">
-          {$imagePreview}
+        <button className="exitModal" onClick={() => this.props.handleClick()}><img src={ex} alt=""/></button>
+        <div className="preview">
+          <form onSubmit={(e)=>this._handleSubmit(e)}>
+            <label htmlFor="fileInput">Pick a Photo/File</label>
+            <input id="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)} />
+            <div className="imgPreview">
+              {$imagePreview}
+            </div>
+            <button className="submitButton" 
+              type="submit" 
+              onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
+          </form>
         </div>
       </div>
     )
@@ -83,7 +86,8 @@ class Profile extends Component {
          { src: "https://1.bp.blogspot.com/-YINIM6j8zIM/VjqsrniuHzI/AAAAAAAAP40/Mai5ThErItA/s600/IMG_2127.JPG", like: "787"},
          { src: "https://2.bp.blogspot.com/-zhajdAvWnUM/Vi46YyAvQqI/AAAAAAAAP28/WfZi8wHBl1k/s600/11220074_1165205506842530_7531581878298417072_n.jpg", like: "76"},
          { src: "https://2.bp.blogspot.com/-93S7FcAuM-I/VgR2f6lqcsI/AAAAAAAAPmM/YhCStMVcVRo/s600/12042627_1150400111656403_6912228186095638186_n.jpg", like: "98"}
-       ]
+       ],
+       modalOpen: false
      }
    }
 
@@ -99,9 +103,22 @@ class Profile extends Component {
      })
    }
 
-   
+   showModal() {
+     this.setState({
+       modalOpen: true
+     })
+   }
+
+   hideModal() {
+     this.setState({
+       modalOpen: false
+     })
+   }
 
 	render() {
+
+    let modal = (this.state.modalOpen) ? <ImageUpload handleClick={() => this.hideModal()}/> : null
+
 		return (
 			<div className="Profile">
         <div className="userImg"><img src="http://2.bp.blogspot.com/-CFsxW1dkfJM/VKiabOTV7AI/AAAAAAAAMik/-X5AH8KpLmM/s1600/IMG_5924.JPG" alt=""/></div>
@@ -123,8 +140,8 @@ class Profile extends Component {
         <div className="lookGrid">
           {this.populateGrid()}
         </div>
-        <button className="addLook">+ New Look</button>
-				{/*<ImageUpload/>*/}
+        <button className="addLook" onClick={() => this.showModal()}>+ New Look</button>
+        {modal}
 			</div>
 		);
 	}
