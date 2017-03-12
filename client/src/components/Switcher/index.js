@@ -7,7 +7,11 @@ import {encode} from 'base64-arraybuffer'
 function InfoLook(props) {
 		return (
 			<div className="InfoLook">
-				<img src={"data:image/jpeg;base64,"+encode(props.look.img.data.data)} alt="missing"/>
+				<div>
+					<img src={"data:image/jpeg;base64,"+encode(props.look.img.data.data)} alt="missing"/>
+					<div className="nope">EWW!</div>
+					<div className="yep">YEP</div>
+				</div>
 				<div className="stats">
 					<div className="row">
 						<div>${props.look.price}</div>
@@ -36,13 +40,44 @@ class Switcher extends Component {
 				fetch(`api/looks`, {
 						accept: 'application/json'})
 				.then(res => res.json())
-				.then(a => this.setState({ looks: a }))
+				.then(a => this.setState({ looks: a }))	
 		}
+		setTimeout(() => {
+			document.querySelector('.Switcher').style.opacity = "1"
+		}, 100)
 	}
 
 
-	handleClick() {
-		this.setState({looks: this.state.looks.splice(1)})
+	handleClick(e) {
+		let elem = e.target.parentElement
+		let nope = document.querySelector('.nope')
+		let yep = document.querySelector('.yep')
+		let info = document.querySelector('.InfoLook')
+		if(elem.className === "like" || elem.className === "right") {
+			yep.style.opacity = "1"
+			setTimeout(() => {              
+         		yep.style.opacity = "0"
+				info.style.opacity = "0"
+				info.style.marginLeft = "200px"
+			}, 300)
+		}else {
+			nope.style.opacity = "1"
+			setTimeout(() => {              
+				nope.style.opacity = "0"
+				info.style.opacity = "0"
+				info.style.marginLeft = "-200px"
+   			}, 300);
+		}
+		elem.classList.toggle("bounce")
+		setTimeout(() => {
+			this.setState({looks: this.state.looks.splice(1)})
+			info.style.opacity = "1"
+			info.style.marginLeft = "0px"
+		}, 400)
+
+		setTimeout(() => {              
+         elem.classList.toggle("bounce")
+   		}, 200);
 	}
 
 	render() {
@@ -62,10 +97,10 @@ class Switcher extends Component {
 						:[<InfoLook key={1} look={this.state.looks[0]}></InfoLook>,
 						<div key={2} className="buttonBox">
 							<div className="left">
-								<button className="dislike" onClick={() => this.handleClick()}><img src={ex} alt=""/></button>
+								<button className="dislike" onClick={(e) => this.handleClick(e)}><img src={ex} alt=""/></button>
 							</div>
 							<div className="right">
-								<button className="like" onClick={() => this.handleClick()}><img src={heart} alt=""/></button>
+								<button className="like" onClick={(e) => this.handleClick(e)}><img src={heart} alt=""/></button>
 							</div>
 						</div>]
 					}

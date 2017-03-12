@@ -1,5 +1,7 @@
 .Switcher{
     height: 80%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
 }
 
 .Switcher div {
@@ -41,13 +43,42 @@
 
 .InfoLook {
     width: 100%;
+    transition: all 0.2s ease-in-out;
 }
 
 .InfoLook img {
     width: 80%;
     margin-top: 4vh;
     margin-bottom: 4vh;
-    box-shadow: 0px 0px 2px 1px 
+    box-shadow: 0px 0px 2px 1px;
+    transition: all 1s;
+}
+
+.InfoLook .nope {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    color: darkred;
+    font-size: 3rem;
+    transform: rotateZ(-30deg);
+    padding: 3px 20px 3px 20px;
+    border: solid 2px darkred;
+    opacity: 0;
+    transition: all 0.1s;
+}
+
+.InfoLook .yep {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    color: pink;
+    padding: 3px 20px 3px 20px;
+    font-size: 3rem;
+    transform: rotateZ(30deg);
+    border: solid 2px pink;
+    border-radius: 40px;
+    opacity: 0;
+    transition: all 0.1s;
 }
 
 .InfoLook div {
@@ -129,6 +160,21 @@
   padding-top: 15px;
   margin-bottom: 20px;
   text-align: center;
-  font: 14pt "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 20pt 'Lobster', cursive;
   color: lighten(#6767fa, 75%);
+}
+
+/*animations*/
+.bounce {
+    animation: bounce 0.2s cubic-bezier(0.35,-0.44, 0.63, 1.47) 0s forwards
+}
+
+@keyframes bounce{
+    0% {
+        transform: scale(1.0);
+    }
+
+    50% {
+        transform: scale(0.80);
+    }
 }
