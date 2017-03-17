@@ -20,7 +20,7 @@ class ImageUpload extends React.Component {
     e.preventDefault()
 	let data = new FormData();
 	data.append('file' ,this.state.file)
-    fetch("api/checkImage", {method: "POST", body: data})
+    fetch("http://localhost:3001/api/checkImage", {method: "POST", body: data})
 	.then(res => res.json())
 	.then(res => console.log(res))
     console.log('handle uploading-', this.state.file)

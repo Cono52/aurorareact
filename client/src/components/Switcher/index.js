@@ -37,7 +37,7 @@ class Switcher extends Component {
 
 	componentDidMount() {
 		if (this.state.looks.length === 0) {
-				fetch(`api/looks`, {
+				fetch(`http://localhost:3001/api/looks`, {
 						accept: 'application/json'})
 				.then(res => res.json())
 				.then(a => this.setState({ looks: a }))	
