@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './index.css'
 import heart from '../heart.svg'
 import ex from '../ex.svg'
+import arrow from '../arrow.svg'
 import {encode} from 'base64-arraybuffer'
 
 function InfoLook(props) {
@@ -98,6 +99,9 @@ class Switcher extends Component {
 						<div key={2} className="buttonBox">
 							<div className="left">
 								<button className="dislike" onClick={(e) => this.handleClick(e)}><img src={ex} alt=""/></button>
+							</div>
+							<div className="middle">
+								<button className="breakdown"><img src={arrow} alt=""/></button>
 							</div>
 							<div className="right">
 								<button className="like" onClick={(e) => this.handleClick(e)}><img src={heart} alt=""/></button>

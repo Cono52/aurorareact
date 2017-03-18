@@ -4,24 +4,31 @@
     transition: opacity 0.5s ease-in;
 }
 
-.Switcher div {
+.Switcher {
     display: block;
 }
 
+.buttonBox {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+}
+
 .left {
-    float: left;
-    margin-left: 20%;
+    flex: 4;
+}
+
+.middle {
+    flex: 1;
+}
+
+.middle img {
+    transform: translateY(3px) scale(2.0);
 }
 
 .right {
-    float: right;
-    margin-right: 20%;
-}
-
-.buttonBox {
-    padding-top: 4vh;
-    padding-bottom: 4vh;
-    overflow: auto;
+    flex: 4;
 }
 
 .Switcher button {
@@ -30,6 +37,11 @@
     border: 0px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0px 6px 10px rgba(0,0,0,0.22);
     padding: 20px 22px 20px 22px;
+}
+
+.Switcher .middle button {
+    background-color: deeppink;
+    padding: 10px 12px 10px 12px;
 }
 
 .Switcher button:focus {
