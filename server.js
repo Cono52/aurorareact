@@ -5,8 +5,8 @@ const Look = require('./models/look')
 const readline = require('readline')
 const multer = require('multer')
 const upload = multer({
-  dest: 'uploads/'
-});
+	dest: 'uploads/'
+})
 const async = require('async')
 const _ = require('lodash')
 const easyimg = require('easyimage')
@@ -15,15 +15,15 @@ const fs = require('fs')
 const app = express()
 
 let exts = {
-  'image/jpeg': '.jpg',
-  'image/png': '.png',
-  'image/gif': '.gif'
+	'image/jpeg': '.jpg',
+	'image/png': '.png',
+	'image/gif': '.gif'
 }
 
 /*db setup*/
 mongoose.Promise = require('bluebird')
 let db = mongoose.connect('mongodb://localhost:27017/auroraLooks').connection
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 
 app.use(bodyParser.urlencoded({ extended: true }))

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import './index.css'
 import heart from '../heart.svg'
 import ex from '../ex.svg'
@@ -57,7 +57,7 @@ class Switcher extends Component {
 		if(elem.className === "like" || elem.className === "right") {
 			yep.style.opacity = "1"
 			setTimeout(() => {              
-         		yep.style.opacity = "0"
+		 		yep.style.opacity = "0"
 				info.style.opacity = "0"
 				info.style.marginLeft = "200px"
 			}, 300)
@@ -77,7 +77,7 @@ class Switcher extends Component {
 		}, 400)
 
 		setTimeout(() => {              
-         elem.classList.toggle("bounce")
+		 elem.classList.toggle("bounce")
    		}, 200);
 	}
 
