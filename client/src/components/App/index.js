@@ -20,7 +20,7 @@ class Nav extends Component {
         </div>  
         <div className="profile">
           <Link to="/profile" activeClassName="active">
-            <img src={profile} className="profile-logo" alt="logo" />
+            <img src={profile} className="profile-logo" alt="logo"/>
           </Link>
         </div>
       </div>
@@ -29,19 +29,43 @@ class Nav extends Component {
 }
 
 class App extends Component {
+
+  constructor(props) {
+		super(props)
+		this.state = {
+			prevPath: this.props.location.pathname
+		}
+	}
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location !== this.props.location) {
+      this.setState({ prevPath: this.props.location.pathname })
+    }
+  }
+
   render() {
     var path = this.props.location.pathname;
     var segment = path.split('/')[1] || 'root';
+
+    var anim = "";
+    console.log(this.state.prevPath)
+    console.log(segment)
+    if(segment === 'root') {
+        anim = 'reverseExample'
+    } 
+    else {
+        anim = 'example'
+    }
     return (
       <div className="App">
           <Nav></Nav>
           <ReactCSSTransitionGroup 
-            transitionName={segment === 'root' ? 'reverseExample' : 'example'}
+            transitionName={anim}
             transitionAppear={true}
             transitionAppearTimeout={500}
             transitionEnterTimeout={600}
             transitionLeaveTimeout={600}>
-             {React.cloneElement(this.props.children, { key: segment })}
+             {React.cloneElement(this.props.children, { key: segment})}
           </ReactCSSTransitionGroup>
       </div>
     );

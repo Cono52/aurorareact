@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router'
 import './index.css'
 import heart from '../heart.svg'
 import ex from '../ex.svg'
@@ -101,7 +102,9 @@ class Switcher extends Component {
 								<button className="dislike" onClick={(e) => this.handleClick(e)}><img src={ex} alt=""/></button>
 							</div>
 							<div className="middle">
-								<button className="breakdown"><img src={arrow} alt=""/></button>
+								<Link to="/ViewProds" activeClassName="active">
+									<button className="breakdown"><img src={arrow} alt=""/></button>
+        						</Link>
 							</div>
 							<div className="right">
 								<button className="like" onClick={(e) => this.handleClick(e)}><img src={heart} alt=""/></button>

@@ -6,7 +6,7 @@ import App from './components/App';
 import Switcher from './components/Switcher';
 import Profile from './components/Profile';
 import NotFound from './components/NotFound';
-
+import ViewProds from './components/ViewProds';
 
 class Routes extends Component {
     render() {
@@ -17,6 +17,9 @@ class Routes extends Component {
                 </Route>
                 <Route path="/profile" component={App}>
                     <IndexRoute component={Profile}/>
+                </Route>
+                <Route path="/ViewProds" component={App}>
+                    <IndexRoute component={ViewProds}/>
                 </Route>
                 <Route path="*" component={NotFound} />
             </Router>
