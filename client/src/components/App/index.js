@@ -46,15 +46,25 @@ class App extends Component {
   render() {
     var path = this.props.location.pathname;
     var segment = path.split('/')[1] || 'root';
-
     var anim = "";
-    console.log(this.state.prevPath)
-    console.log(segment)
-    if(segment === 'root') {
-        anim = 'reverseExample'
-    } 
+    if(this.state.prevPath.split('/')[1] === "ViewProds" || segment === "ViewProds"){
+      if(segment === 'root') {
+          anim = 'reverseVert'
+      }
+      else if (segment === 'profile'){
+          anim = 'hoz'
+      }
+      else {
+          anim = 'vert'
+      }
+    }
     else {
-        anim = 'example'
+      if(segment === 'root') {
+          anim = 'reverseHoz'
+      }
+      else {
+          anim = 'hoz'
+      }
     }
     return (
       <div className="App">
