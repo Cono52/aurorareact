@@ -1,0 +1,23 @@
+.ViewProds {
+     font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+.creator {
+
+}
+
+.products {
+    background-color: lightgoldenrodyellow;
+}
+
+.products .lookItem {
+    background-color: goldenrod;
+    margin: 5px;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.method {
+    background-color: lightgreen;
+}
