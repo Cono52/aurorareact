@@ -10,7 +10,10 @@ function InfoLook(props) {
 		return (
 			<div className="InfoLook">
 				<div>
-					<img src={"data:image/jpeg;base64,"+encode(props.look.img.data.data)} alt="missing"/>
+					<div className="polar">
+						<img src={"data:image/jpeg;base64,"+encode(props.look.img.data.data)} alt="missing"/>
+						<div className='userName'>{props.look.author}</div>
+					</div>
 					<div className="nope">EWW!</div>
 					<div className="yep">YEP</div>
 				</div>
