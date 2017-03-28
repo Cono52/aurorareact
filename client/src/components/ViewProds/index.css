@@ -1,23 +1,62 @@
 .ViewProds {
-     font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: bold;
 }
 
-.creator {
-
+a {
+    text-decoration: none;
+    color: black;
 }
 
 .products {
-    background-color: lightgoldenrodyellow;
+    background-color: white;
+    font-family: 'Lobster', cursive;
+    margin: 2%;
+    font-size: 1.5rem;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 0 1px 4px 1px rgba(0,0,0, 0.2);
 }
 
 .products .lookItem {
-    background-color: goldenrod;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.0rem;
+    background: #BA5370; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #BA5370 , #F4E2D8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #BA5370 , #F4E2D8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin: 5px;
+    margin-top: 13px;
     border-radius: 3px;
-    padding: 5px;
+    padding: 15px;
+    box-shadow: 0 1px 4px 1px rgba(0,0,0, 0.2);
+    display: flex;
 }
 
+.products .lookItem a{
+   flex: 1;
+}
+
+.products .lookItem img{
+   transform: rotate(-90deg);
+   margin: 4px;
+}
+
+
+
 .method {
-    background-color: lightgreen;
+    margin: 2%;
+    padding: 2%;
+    padding-top: 20px;
+    background: #BA5370; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #BA5370 , #F4E2D8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #BA5370 , #F4E2D8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 0 1px 4px 1px rgba(0,0,0, 0.2);
+    font-family: 'Lobster', cursive;
+    font-size: 1.5rem;
+    border-radius: 3px;
+}
+
+.method p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.1rem;
 }

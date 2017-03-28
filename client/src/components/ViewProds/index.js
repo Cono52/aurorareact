@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
+import arrow from '../arrow.svg'
 import './index.css';
 class ViewProds extends Component {
     state = {  }
     render() {
         return (
             <div className="ViewProds">
-                <div className='creator'>
-                    <p>Alba Hansen</p>
-                </div>
                 <div className='products'>Products
-                    <div className='lookItem'>Urban Decay All nighter Foundation</div>
-                    <div className='lookItem'>NYX HD concealer</div>
-                    <div className='lookItem'>Rimmel stay matte translucent powder</div>
-                    <div className='lookItem'>Natural bronzer rimmel</div>
-                    <div className='lookItem'>Maybellene brow this way</div>
-                    <div className='lookItem'>Mac: mascara matte upward lash</div>
-                    <div className='lookItem'>Eyeshadow annestasia beverly hills: modern renaissance</div>
-                    <div className='lookItem'>Milane blusher</div>
-                    <div className='lookItem'>NYX butter gloss</div>
-                    <div className='lookItem'>Rimmel Scandeleyes</div>
+                    <div className='lookItem'><a href="http://www.debenhams.ie/webapp/wcs/stores/servlet/prod_10052_10001_123932068099_-1">Urban Decay 'All Nighter Full Coverage Longwear' liquid foundation</a><img src={arrow} alt=""/></div>
+                    <div className='lookItem'><a href="http://www.nyxcosmetics.com/hd-photogenic-concealer-wand/NYX_013.html">NYX HD Photogenic Concealer Wand</a><img src={arrow} alt=""/></div>
+                    <div className='lookItem'><a href="http://www.boots.ie/rimmel-stay-matte-pressed-powder-10097901">Rimmel London Stay Matte Pressed Powder Transparent</a><img src={arrow} alt=""/></div>
+                    <div className='lookItem'><a href="http://www.boots.ie/rimmel-natural-bronzer-10058661">Rimmel London Natural Bronzer</a></div>
+                    <div className='lookItem'><a href="http://www.boots.ie/rimmel-london-brow-this-way-eyebrow-kit-10182723">Rimmel London London Brow This Way Eyebrow Kit</a><img src={arrow} alt=""/></div>
+                    <div className='lookItem'><a href="http://www.maccosmetics.com/product/13839/36168/products/makeup/eyes/mascara/upward-lash">MAC Upward Lash Mascara</a><img src={arrow} alt=""/></div>
+                    <div className='lookItem'><a href="http://www.sephora.com/modern-renaissance-eye-shadow-palette-P409118">Anastasia Beverly Hills Modern Renaissance Eye Shadow Palette</a><img src={arrow} alt=""/></div>
+                    <div className='lookItem'><a href="http://milanicosmetics.com/Baked-Blush.html">Milani Baked Blush</a><img src={arrow} alt=""/></div>
+                    <div className='lookItem'><a href="http://www.boots.ie/nyx-professional-makeup-butter-gloss-10207772">NYX Butter Gloss</a><img src={arrow} alt=""/></div>
+                    <div className='lookItem'><a href="http://www.ulta.com/scandaleyes-mascara?productId=xlsImpprod4090117">Rimmel London ScandelEyes Mascara</a><img src={arrow} alt=""/></div>
                 </div>
                 <div className='method'>Method/Tips:
-                    1. To apply foundation use a brush, for example Real Techqniques Face Brush
-                    2. To apply concelear use a beauty blender.
-
-                    Tip: The foundation for this look is very performs better on oily combination skin
+                    <p>To apply foundation use a brush, for example Real Techqniques Face Brush.</p>
+                    <p>To apply concelear use a beauty blender.</p>
+                    <p>The foundation for this look performs better on oily/combination skin.</p>
                 </div>
             </div>
         )
