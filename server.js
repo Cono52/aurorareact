@@ -46,6 +46,7 @@ app.post('/api/checkImage', upload.single('file'), (req, res, next) => {
   let filename = req.file.filename + exts[req.file.mimetype]
   let src = __dirname + '/' + req.file.path
   let dst = __dirname + './images/' + filename;
+  let imageRe = "";
   async.waterfall(
     [callback => {
         if (!_.contains(['image/jpeg', 'image/png', 'image/gif'], req.file.mimetype))
@@ -61,10 +62,13 @@ app.post('/api/checkImage', upload.single('file'), (req, res, next) => {
         .then(image => { return callback()})
       },
       callback => { cv.readImage(dst, callback) },
-      (im, callback) => {im.detectObject(cv.FACE_CASCADE, {}, callback)}
+      (im, callback) => {
+        imageRe = im
+        im.detectObject(cv.FACE_CASCADE, {}, callback)
+    }
     ],
     (err, faces) => {
-      (err) ? res.send({'valid': 'no'}): res.send({'faces': faces})
+      (err) ? res.send({'valid': 'no'}): res.send({'faces': faces, 'imgH':imageRe.height(), 'imgW':imageRe.width()})
     }
   );
 })
