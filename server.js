@@ -74,13 +74,15 @@ app.listen(3001, () => {
 })
 
 
-let manualInput = (imgPath, rating, skill, price) => {
+let manualInput = (imgPath, rating, skill, price, author, likes) => {
   let look = new Look
   look.img.data = fs.readFileSync(imgPath, 'base64')
   look.img.contentType = 'image/jpg'
   look.rating = rating
   look.skill = skill
   look.price = price
+  look.author = author
+  look.likes = likes
   look.save((err, a) => {
     if (err) throw err
     else console.log("saved look")
@@ -99,7 +101,7 @@ let recursiveAsyncReadLine = () => {
       return rl.close()
     } else if (answer.indexOf("mockpics") != -1) {
       let params = answer.split(", ")
-      manualInput(params[0], params[1], params[2], params[3])
+      manualInput(params[0], params[1], params[2], params[3], params[4], params[5])
       console.log(params)
       console.log("picture")
     }
