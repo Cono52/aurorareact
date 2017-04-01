@@ -64,7 +64,7 @@ app.post('/api/checkImage', upload.single('file'), (req, res, next) => {
       (im, callback) => {im.detectObject(cv.FACE_CASCADE, {}, callback)}
     ],
     (err, faces) => {
-      (err) ? res.send({'valid': 'no'}): res.send({'faces': faces.length})
+      (err) ? res.send({'valid': 'no'}): res.send({'faces': faces})
     }
   );
 })

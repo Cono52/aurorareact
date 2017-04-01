@@ -10,7 +10,7 @@ class ViewProds extends Component {
                     <div className='lookItem'><a href="http://www.debenhams.ie/webapp/wcs/stores/servlet/prod_10052_10001_123932068099_-1">Urban Decay 'All Nighter Full Coverage Longwear' liquid foundation</a><img src={arrow} alt=""/></div>
                     <div className='lookItem'><a href="http://www.nyxcosmetics.com/hd-photogenic-concealer-wand/NYX_013.html">NYX HD Photogenic Concealer Wand</a><img src={arrow} alt=""/></div>
                     <div className='lookItem'><a href="http://www.boots.ie/rimmel-stay-matte-pressed-powder-10097901">Rimmel London Stay Matte Pressed Powder Transparent</a><img src={arrow} alt=""/></div>
-                    <div className='lookItem'><a href="http://www.boots.ie/rimmel-natural-bronzer-10058661">Rimmel London Natural Bronzer</a></div>
+                    <div className='lookItem'><a href="http://www.boots.ie/rimmel-natural-bronzer-10058661">Rimmel London Natural Bronzer</a><img src={arrow} alt=""/></div>
                     <div className='lookItem'><a href="http://www.boots.ie/rimmel-london-brow-this-way-eyebrow-kit-10182723">Rimmel London London Brow This Way Eyebrow Kit</a><img src={arrow} alt=""/></div>
                     <div className='lookItem'><a href="http://www.maccosmetics.com/product/13839/36168/products/makeup/eyes/mascara/upward-lash">MAC Upward Lash Mascara</a><img src={arrow} alt=""/></div>
                     <div className='lookItem'><a href="http://www.sephora.com/modern-renaissance-eye-shadow-palette-P409118">Anastasia Beverly Hills Modern Renaissance Eye Shadow Palette</a><img src={arrow} alt=""/></div>
