@@ -22,13 +22,41 @@ class ImageUpload extends React.Component {
 	data.append('file' ,this.state.file)
     fetch("http://localhost:3001/api/checkImage", {method: "POST", body: data})
 	.then(res => res.json())
-	.then(res => console.log(res))
+	.then(res => this.checkValid(res))
     console.log('handle uploading-', this.state.file)
+  }
+
+  checkValid(res) {
+    console.log(res)
+    let area = res.imgH * res.imgW
+    if(res.faces.length===0){
+      console.log("failed, not a valid image")
+      document.querySelector(".fail").style.opacity = 1;
+    }
+    else if(res.faces.length>1){
+      console.log("failed, please only have one face in image")
+      document.querySelector(".fail").style.opacity = 1;
+    }
+    else{
+      let portion = ( (res.faces[0].height * res.faces[0].width) / area ) * 100;
+      console.log(`face to image: %${portion}`)
+      if(portion < 20){
+          console.log("make sure your face takes up at least 1/4 of the image")
+          document.querySelector(".fail").style.opacity = 1;
+      }
+      else{
+        console.log("valid")
+        document.querySelector(".pass").style.opacity = 1;
+        document.querySelector(".submitButton").innerText = "Enter Products >>";
+      }
+    }
   }
 
   _handleImageChange(e) {
     e.preventDefault();
-
+    document.querySelector(".pass").style.opacity = 0;
+    document.querySelector(".fail").style.opacity = 0;
+    document.querySelector(".submitButton").innerText = "Upload Image";
     let reader = new FileReader();
     let file = e.target.files[0];
 
@@ -46,7 +74,7 @@ class ImageUpload extends React.Component {
     let {imagePreviewUrl} = this.state;
     let $imagePreview = null;
     if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} alt="You done messed up son"/>);
+      $imagePreview = (<img className="prev" src={imagePreviewUrl} alt="You done messed up son"/>);
     } else {
       $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
     }
@@ -56,10 +84,12 @@ class ImageUpload extends React.Component {
         <button className="exitModal" onClick={() => this.props.handleClick()}><img src={ex} alt=""/></button>
         <div className="preview">
           <form onSubmit={(e)=>this._handleSubmit(e)}>
-            <label htmlFor="fileInput">Pick a Photo/File</label>
+            <label htmlFor="fileInput" className="pickPhoto">Pick a Photo/File</label>
             <input id="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)} />
             <div className="imgPreview">
               {$imagePreview}
+              <div className="fail">Fail</div>
+				    	<div className="pass">Pass</div>
             </div>
             <button className="submitButton" 
               type="submit" 

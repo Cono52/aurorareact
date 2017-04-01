@@ -81,11 +81,11 @@
     position: absolute;
     top: 20%;
     left: 20%;
-    color: darkred;
+    color: red;
     font-size: 3rem;
     transform: rotateZ(-30deg);
     padding: 3px 20px 3px 20px;
-    border: solid 2px darkred;
+    border: solid 2px red;
     opacity: 0;
     transition: all 0.1s;
 }

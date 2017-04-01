@@ -182,3 +182,32 @@
     border-style: none;
     box-shadow: 0px 2px 0px 1px hsl(350, 100%, 25%);
 }
+
+.fail {
+    position: absolute;
+    top: 40%;
+    left: 24%;
+    color: red;
+    font-size: 3rem;
+    transform: rotateZ(-30deg);
+    padding: 3px 20px 3px 20px;
+    border: solid 2px red;
+    opacity: 0;
+    transition: all 0.5s;
+    font-weight: bold;
+}
+
+.pass {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    color: greenyellow;
+    padding: 3px 20px 3px 20px;
+    font-size: 3rem;
+    transform: rotateZ(30deg);
+    border: solid 2px greenyellow;
+    border-radius: 40px;
+    opacity: 0;
+    transition: all 0.5s;
+    font-weight: bold;
+}
