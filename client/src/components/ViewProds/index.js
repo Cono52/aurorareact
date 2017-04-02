@@ -20,7 +20,7 @@ class ViewProds extends Component {
                 </div>
                 <div className='method'>Method/Tips:
                     <p>To apply foundation use a brush, for example Real Techqniques Face Brush.</p>
-                    <p>To apply concelear use a beauty blender.</p>
+                    <p>To apply concealer use a beauty blender.</p>
                     <p>The foundation for this look performs better on oily/combination skin.</p>
                 </div>
             </div>
